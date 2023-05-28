@@ -29,10 +29,6 @@ function calculateMinCost(arr,n) {
    
         return res;
 
- 
-  
-  
-  
 }  
   
   
