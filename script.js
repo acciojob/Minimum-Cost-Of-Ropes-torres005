@@ -1,33 +1,38 @@
+function calculateMinCost(arr,n) {
+  //your code here
+    // Create a priority queue
+        let pq = [];
+   
+        // Adding items to the pQueue
+        for (let i = 0; i < n; i++) {
+            pq.push(arr[i]);
+        }   
+           
+        pq.sort(function(a,b){return a-b;});
+         
+        // Initialize result
+        let res = 0;
+   
+        // While size of priority queue
+        // is more than 1
+        while (pq.length > 1) {
+            // Extract shortest two ropes from pq
+            let first = pq.shift();
+            let second = pq.shift();
+   
+            // Connect the ropes: update result
+            // and insert the new rope to pq
+            res += first + second;
+            pq.push(first + second);
+            pq.sort(function(a,b){return a-b;});
+        }
+   
+        return res;
 
-const result = document.getElementById('result');
-const arr = document.getElementById('rope-length').split(',');
-	
-
-
-
-	
-	
-function calculateMinCost() {
+ 
   
-  const minHeap = new PriorityQueue();
-	for(const len of arr){
-		minHeap.add(len);
-	}
-
-	let cost = 0;
-
-	while(minHeap.size() > 1) {
-		const min1 = minHeap.poll();
-		const min2 = minHeap.poll();
-
-		const sum = min1 + min2;
-
-		minHeap.add(sum);
-
-		cost += sum;
-	}
-	
-	result.innerText = cost;
+  
+  
 }  
   
   
